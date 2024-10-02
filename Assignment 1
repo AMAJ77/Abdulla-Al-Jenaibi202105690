@@ -1,0 +1,126 @@
+class Guest:
+    def _init_(self, name, email, phone_number, address, nationality, date_of_birth):
+        self.name = name  # Guest's name
+        self.email = email  # Guest's email
+        self.phone_number = phone_number  # Guest's phone number
+        self.address = address  # Guest's address
+        self.nationality = nationality  # Guest's nationality
+        self.date_of_birth = date_of_birth  # Guest's date of birth
+
+    # Function to reserve a room
+    def reserve_room(self):
+        print(f"{self.name} has reserved a room.")
+
+    # Function to check the vacant room
+    def get_vacant_room(self):
+        print(f"System checks for vacant rooms for {self.name}.")
+
+    # Function to occupy the room
+    def occupy_room(self):
+        print(f"Room is now occupied by {self.name}.")
+
+    # Function to check out
+    def check_out(self):
+        print(f"{self.name} has checked out.")
+
+    # Function to cancel a reservation
+    def cancel_reservation(self):
+        print(f"{self.name} has canceled the reservation.")
+
+
+# Reservation Class
+class Reservation:
+    def _init_(self, reservation_id, room_number, check_in_date, check_out_date, total_amount, status):
+        self.reservation_id = reservation_id  # Reservation ID
+        self.room_number = room_number  # Room number
+        self.check_in_date = check_in_date  # Check-in date
+        self.check_out_date = check_out_date  # Check-out date
+        self.total_amount = total_amount  # Total amount for the reservation
+        self.status = status  # Status of the reservation
+
+    # Function to complete the payment
+    def complete_payment(self):
+        print(f"Reservation ID {self.reservation_id} payment completed.")
+
+    # Function to start the payment process
+    def start_payment_process(self):
+        print(f"Payment process started for reservation ID {self.reservation_id}.")
+
+
+# Payment Class
+class Payment:
+    def _init_(self, payment_id, payment_method, amount_paid, status, transaction_date, reference_number):
+        self.payment_id = payment_id  # Payment ID
+        self.payment_method = payment_method  # Payment method
+        self.amount_paid = amount_paid  # Amount paid
+        self.status = status  # Status of the payment
+        self.transaction_date = transaction_date  # Date of transaction
+        self.reference_number = reference_number  # Reference number of the payment
+
+    # Function to process payment
+    def process_payment(self):
+        print(f"Payment ID {self.payment_id} of amount {self.amount_paid} has been processed.")
+
+
+# Receipt Class
+class Receipt:
+    def _init_(self, receipt_id, guest_name, total_amount, tax, date_issued):
+        self.receipt_id = receipt_id  # Receipt ID
+        self.guest_name = guest_name  # Guest name on the receipt
+        self.total_amount = total_amount  # Total amount on the receipt
+        self.tax = tax  # Tax
+        self.date_issued = date_issued  # Date receipt was issued
+
+    # Function to provide receipt
+    def provide_receipt(self):
+        print(f"Receipt ID {self.receipt_id} provided to {self.guest_name}.")
+
+
+# Create Guest Object
+guest1 = Guest("Abdulla Aljenabi", "abdulla4532@gmail.com", "0509878429", "Zayed St", "UAE", "1990-04-20")
+
+# Guest reserves a room
+guest1.reserve_room()
+
+# System checks for vacant rooms
+guest1.get_vacant_room()
+
+# Guest occupies the room
+guest1.occupy_room()
+
+# Create Reservation Object
+reservation1 = Reservation(2005, 408, "2024-11-01", "2024-11-05", 1200.00, "Confirmed")
+
+# Start the payment process
+reservation1.start_payment_process()
+
+# Create Payment Object
+payment1 = Payment(4002, "Debit Card", 1200.00, "Processed", "2024-11-01", "REF123456")
+
+# Process the payment
+payment1.process_payment()
+
+# Complete the payment
+reservation1.complete_payment()
+
+# Create Receipt Object
+receipt1 = Receipt(5004, "Abdulla Aljenbi", 1200.00, 50.00, "2024-11-01")
+
+# Provide the receipt
+receipt1.provide_receipt()
+
+# Guest checks out
+guest1.check_out()
+
+# Guest cancels reservation (optional case)
+guest1.cancel_reservation()
+
+# Display final details
+print("Guest:", guest1.name, "Email:", guest1.email, "Phone:", guest1.phone_number, "Nationality:", guest1.nationality)
+print("Reservation ID:", reservation1.reservation_id, "Room Number:", reservation1.room_number, "Check-in Date:",
+      reservation1.check_in_date, "Check-out Date:", reservation1.check_out_date, "Total Amount:",
+      reservation1.total_amount, "Status:", reservation1.status)
+print("Receipt ID:", receipt1.receipt_id, "Guest:", receipt1.guest_name, "Total Amount:", receipt1.total_amount, "Tax:",
+      receipt1.tax, "Date Issued:", receipt1.date_issued)
+print("Payment ID:", payment1.payment_id, "Payment Method:", payment1.payment_method, "Amount Paid:",
+      payment1.amount_paid, "Status:", payment1.status, "Transaction Date:", payment1.transaction_date,"Reference Number:", payment1.reference_number)
